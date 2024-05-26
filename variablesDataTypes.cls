@@ -40,9 +40,15 @@ Double salary = 101.56;
 System.debug('Salary: '+ salary);
 Integer age =36;
 System.debug('Age:'+age);
+
 String sessionGreeting = 'hello Hola Too My Session!';
-sessionGreeting = 'Hello to Code With Sally session.';
+// 'Hello to Code With Sally session.';
+sessionGreeting = sessionGreeting.toLowerCase();
+sessionGreeting = sessionGreeting.replace('hola too my', 'to Code With Sally');
+sessionGreeting = sessionGreeting.replace('!', '.');
+sessionGreeting = sessionGreeting.substring(0,1).toUpperCase() + sessionGreeting.substring(1);
 System.debug('Updated Greeting:'+ sessionGreeting);
+
 Boolean isMorning;
 String day = 'Day';
 String night = 'Night';
