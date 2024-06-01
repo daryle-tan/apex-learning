@@ -20,7 +20,16 @@ public with sharing class Car {
         this.isEngineRunning = false;
     }
 
+    public Car(String vinValue, String strColour) {
+        this.vin = vinValue;
+        this.colour = strColour;
+    }
 
+    public Car(String vinValue, String strColour) {
+        this.vin = vinValue;
+        this.colour = strColour;
+    }
+    
     //Signature
     //AccessModifier returnType methodName(Parameter Comma Separated if Any)
     public Void printDetails(){
@@ -62,10 +71,7 @@ Car s1Car = new Car('Honda','CRV',2000,'orange');
 Car s2Car = new Car('Honda','Insight',2010,'blue');
 
 //Student3 Car 
-Car s3Car = new Car();
-s3Car.vin = '1D7HE42K76S713734';
-s3Car.colour = 'yellow';
-
+Car s3Car = new Car('1D7HE42K76S713734', 'yellow');
 
 //check engine
 System.debug('S1 Car IsEngineRunning befor starting the engine: '+s1Car.isEngineRunning);
