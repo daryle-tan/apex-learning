@@ -12,11 +12,11 @@ public with sharing class Car {
         this.isEngineRunning = false;
     }
 
-    public Car(String makeValue, String modelValue, Integer yearValue, String strColour){ 
+    public Car(String makeValue, String modelValue, Integer yearValue, String colour){ 
         this.make = makeValue;
         this.model = modelValue;
         this.year = yearValue;
-        this.colour = strColour;
+        this.colour = colour;
         this.isEngineRunning = false;
     }
 
