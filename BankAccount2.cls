@@ -1,7 +1,9 @@
 public with sharing class BankAccount2 {
-    private Decimal balance;
-    public String accountName;
-    public Boolean isActive;
+    // private Decimal balance;
+    private String accountName;
+    private Boolean isActive;
+    // property accessors
+    public Decimal balance {get; private set;}
 
     BanAccount2(Deciaml balance) { 
         this.balance = balance;
@@ -15,11 +17,21 @@ public with sharing class BankAccount2 {
         this.isActive =  false;
     }
 
-   public void deposit(Decimal amount) {
-    if(amount>0) {
-        this.balance += amount;
+    //Getter for Balance
+    // public Decimal getBalance() {
+    //     return this.balance;
+    // }
+
+    //Setter for Balance
+    // public void setBalance(Decimal amount) {
+    //     this.balance = amount;
+    // }
+
+    public void deposit(Decimal amount) {
+        if(amount>0) {
+            this.balance += amount;
+        }
     }
-   }
 
    public void withdraw(Decimal amount) {
     if(amount>0) {
