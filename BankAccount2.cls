@@ -26,7 +26,14 @@ public with sharing class BankAccount2 {
     // public void setBalance(Decimal amount) {
     //     this.balance = amount;
     // }
+    public String getAccountName() {
+        return this.accountName;
+    }
 
+    public Sring setAccountName(String newAccountName) {
+        return this.accountName = newAccountName;
+    }
+    
     public void deposit(Decimal amount) {
         if(amount>0) {
             this.balance += amount;
