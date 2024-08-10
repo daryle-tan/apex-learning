@@ -5,7 +5,7 @@ public class Dog extends Animal {
        super(name, age, breed, color);
     }
     //public method
-    public void makeSound() {
+    public override void makeSound() {
         System.debug('Dog: '+name+' is barking');
     }
 }

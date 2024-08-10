@@ -4,7 +4,7 @@ public class Cat extends Animal {
        super(name, age, breed, color);
     }
 
-    public void makeSound() {
+    public override void makeSound() {
         System.debug('Cat: '+name+' is meowing');
     }
 }
