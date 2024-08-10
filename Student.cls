@@ -1,8 +1,9 @@
 public class Student {
-    public String name;
-    public Integer grade;
+    public String name {get; private set;};
+    private Integer grade;
+    private Integer age;
 
-    public Student(String name, Integer grade) {
+    private Student(String name, Integer grade) {
         this.name = name;
         this.grade = grade;
     }
@@ -14,5 +15,13 @@ public class Student {
     public void demoPassThis(List<Student> studentList) {
         studentList.add(this);
         StudentUtils.printStudentList(studentList);
+    }
+
+    public Integer getStudentAge() {
+        return this.age;
+    }
+
+    public void setStudentAge(Integer age) {
+        this.age = age;
     }
 }
