@@ -1,7 +1,7 @@
 public class Book {
-    public String title;
-    public String author;
-    public Integer yearPublished;
+    private String title;
+    private String author;
+    private Integer yearPublished;
 
     public Book(String title,
     String author) {

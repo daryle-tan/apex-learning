@@ -1,9 +1,11 @@
-public class Library {
-    public static void List<Book> lstBooks = new List<Book>();
+public with sharing class Library {
+    public List<Book> lstBooks;
 
-    public static void addBook(String title, String author, Integer yearPublished) {
-        Book b = new Book(title, author, yearPublished);
+    public Library() {
+        lstBooks = new List<Book>();
+    }
 
-        lstBooks.add(b);
+    public static void addBook(Book bookObj) {
+        lstBooks.add(bookObj);
     }
 }
