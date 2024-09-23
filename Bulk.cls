@@ -2,7 +2,7 @@ Account accountObj1 = new Account(Name='Sobject3');
 Account accountObj2 = new Account(Name='Sobject4');
 Account accountObj3 = new Account(Name='Sobject5');
 
-List <Account> lstAccounts = new Liist<Account>();
+List <Account> lstAccounts = new List<Account>();
 lstAccounts.add(accountObj1);
 lstAccounts.add(accountObj2);
 lstAccounts.add(accountObj3);
@@ -18,7 +18,7 @@ List<Account> accounts = new List<Account>{
 List<Database.SaveResult> results =  Database.insert(accounts, false);
 
 // Create Parent record
-Account accountObj  = new  Account(Name='Tech Corp');
+Account accountObj  = new Account(Name='Tech Corp');
 insert accountObj;
 
 // Create Child record
@@ -27,3 +27,12 @@ Contact contact2 = new Contact(FirstName='Jane', LastName='Doe', AccountId=accou
 
 List<Contact> lstContacts = new List<Contact>{contact1, contact2};
 insert lstContacts;
+
+//Using a := to query a variable
+List<Contacts> lstContacts = [SELECT firstName, LastName from Contact where AccountId =: accountObj.Id];
+
+//Querying a fields based on the relationiship
+Account accountObj = [SELECT Name,(SELECT FirstName, LastName from Contacts) FROM Account WHERE Name = 'Tech Corp'];
+for(Contact contactObj  : accountObj.Contacts){
+    System.debug('check contactObj: ' +contactObj);
+}

@@ -1,13 +1,9 @@
 // create:
-Account accountObj1 = new Account(Name = 'test1');
-Account accountObj2 = new Account(Name='test2');
-Account accountObj3 = new Account(Name='test3');
-
-List<Account> lstAccounts = new List<Account>();
-  lstAccounts.add(accountObj1);
-  lstAccounts.add(accountObj2);
-  lstAccounts.add(accountObj3);
-
+List<Account> lstAccounts = new List<Account>{
+    new Account(Name = 'test1'),
+    new Account(Name='test2'),
+    new Account(Name='test3')
+};
 
 insert lstAccounts;
 
@@ -33,3 +29,37 @@ try{
 }catch(Exception ex){
     System.debug('Generic Error: '+ex.GetMessage());
 }
+
+//Exercise 2
+// Create a list of five Contact records associated with a single Account and insert them in bulk
+Account accObjMain = new Account(Name='Relic');
+List<Contact> lstContacts = new List<Contact>{
+    new Contact(Name='C1', accountId=accObjMain.Id),
+    new Contact(Name='C2', accountId=accObjMain.Id),
+    new Contact(Name='C3', accountId=accObjMain.Id),
+    new Contact(Name='C4', accountId=accObjMain.Id),
+    new Contact(Name='C5', accountId=accObjMain.Id),
+};
+insert lstContacts;
+// Query and display the inserted records
+List<Contact> getLstContacts = [SELECT Name FROM Contact WHERE accountId =: accObjMain.Id];
+for(Contact cObj: getLstContacts) {
+    System.debug('The contact name is '+cObj.Name +' and accountId is '+cObj.accountId)
+};
+
+//Exercise 3
+//Write a SOQL query to retrieve all Contact records where the Account.Name equals "Acme Corp". Display the contacts' names.
+
+//Exericse 4
+//Using Database.insert and Error Handling Task:
+// Insert a list of Opportunity records using Database.insert and handle any errors.
+// Ensure at least one record fails to simulate an error and print error messages
+
+//Exercise 5
+// Working with Related Records Task:
+// Create an Account record and associate it with three Contact records
+// Query the Account and ensure the Contacts are related. Update the Contacts' phone numbers in bulk
+
+//Exercise 6:
+// Handling Generic SObjects Task:
+// Create a method that accepts a List<SObject> and inserts the records, regardless of whether they are Accounts, Contacts, or Opportunities.
