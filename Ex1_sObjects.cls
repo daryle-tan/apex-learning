@@ -49,7 +49,7 @@ for(Contact cObj: getLstContacts) {
 
 //Exercise 3
 //Write a SOQL query to retrieve all Contact records where the Account.Name equals "Acme Corp". Display the contacts' names.
-
+List<Contact> acmeContacts = [SELECT Name, (SELECT FirtName, LastName from Contacts) FROM Account WHERE Name = 'Acme Corp'];
 //Exericse 4
 //Using Database.insert and Error Handling Task:
 // Insert a list of Opportunity records using Database.insert and handle any errors.
