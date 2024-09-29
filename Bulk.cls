@@ -29,7 +29,7 @@ List<Contact> lstContacts = new List<Contact>{contact1, contact2};
 insert lstContacts;
 
 //Using a := to query a variable
-List<Contacts> lstContacts = [SELECT firstName, LastName from Contact where AccountId =: accountObj.Id];
+List<Contact> lstContacts = [SELECT firstName, LastName from Contact where AccountId =: accountObj.Id];
 
 //Querying a fields based on the relationiship
 Account accountObj = [SELECT Name,(SELECT FirstName, LastName from Contacts) FROM Account WHERE Name = 'Tech Corp'];

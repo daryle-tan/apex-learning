@@ -50,16 +50,44 @@ for(Contact cObj: getLstContacts) {
 //Exercise 3
 //Write a SOQL query to retrieve all Contact records where the Account.Name equals "Acme Corp". Display the contacts' names.
 List<Contact> acmeContacts = [SELECT Name, (SELECT FirtName, LastName from Contacts) FROM Account WHERE Name = 'Acme Corp'];
+for(Contact contactObj  : acmeContacts){
+    System.debug('These contacts fall under Acme corp: '+contactObj)
+}
 //Exericse 4
 //Using Database.insert and Error Handling Task:
 // Insert a list of Opportunity records using Database.insert and handle any errors.
 // Ensure at least one record fails to simulate an error and print error messages
 
+List<Opportunity> lstOpportunities = new List<Opportunity>{
+    new Opportunity(Name = 'o1'),
+    new Opportunity(Name = 'o2'),
+    new Opportunity(Name = 'o3'),
+}
+try {
+    List<Database.SaveResult> results = Database.insert(lstOpportunities, true);
+}catch(DmlException e){
+    System.debug('Error: '+e.getMessage());
+}
 //Exercise 5
 // Working with Related Records Task:
 // Create an Account record and associate it with three Contact records
 // Query the Account and ensure the Contacts are related. Update the Contacts' phone numbers in bulk
+Account accObj2 = new Account(Name='Bit Tech');
+insert accObj2;
+
+Contact con1 = new Contact(FirstName='Go', LastName='Pro', AccountId=accObj2.Id);
+Contact con2 = new Contact(FirstName='Helga', LastName='Arnold', AccountId=accObj2.Id);
+Contact con3 = new Contact(FirstName='Felish', LastName='Gertrude', AccountId=accObj2.Id);
+
+List<Contact> lstCon = new List<Contact>{con1, con2, con3};
+insert lstCon;
+
+Account queryAcc = [SELECT Name, (SELECT FirstName, LastName from Contacts) FROM Account WHERE Name = 'Bit Tech'];
+
 
 //Exercise 6:
 // Handling Generic SObjects Task:
 // Create a method that accepts a List<SObject> and inserts the records, regardless of whether they are Accounts, Contacts, or Opportunities.
+public void insertSObject(List<SObject> lstSObjects){
+    insert lstSObjects;
+}
