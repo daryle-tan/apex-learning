@@ -48,6 +48,15 @@ public with sharing class Computer {
         integerSet.remove(1);
         System.debug('This is theh integer set:::'+integerSet);
     }
+
+    public static void integerMapExample(){
+        Map<String, Integer> intNameToIntValueMap = new Map<String, Integer>();
+        intNameToIntValueMap.put('key1', 'value1');
+        intNameToIntValueMap.get('key1');
+        intNameToIntValueMap.put('key2', 'value2');
+        intNameToIntValueMap.put('key3', 'value3');
+        System.debug('This is our map:: '+intNameToIntValueMap);
+    }
     
 }
 
