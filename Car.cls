@@ -1,4 +1,4 @@
-public class Car {
+public with sharing class Car {
     private String make;
     private String model;
     private Boolean isEngineRunning;
@@ -8,7 +8,11 @@ public class Car {
         this.model = model;
         this.isEngineRunning = false;
     }
-
+    // static method
+    public static Integer convertMphToKphh(Integer mph) {
+        return 0;
+    }
+    // instance method
     private void startEngine() {
         this.isEngineRunning = true;
     }
