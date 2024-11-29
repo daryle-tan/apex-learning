@@ -42,4 +42,20 @@ public with sharing class AccessModifiers
             }
         }
     }
+
+    public void updateContactLastName(List<Contact> contacts){
+        System.debug('This is the list before iteration :::: '+ contacts);
+        for(Integer i = 0; i < contacts.size(); i++) {
+            System.debug('This is the current value of i ::: '+ i);
+            contacts[i].LastName = 'Bamboozled';
+        }
+        System.debug('This is the list :::: '+ contacts);
+        insert contacts;
+    }
+
+    public void updateContactsLastNameEnhanced(List<Contact> conts){
+        for(Contact cont: conts){
+            cont.LastName = 'Jamboozled';
+        }
+    }
 }
