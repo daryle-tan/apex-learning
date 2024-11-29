@@ -8,7 +8,38 @@
 // step down from global
 public with sharing class AccessModifiers
 {
-    public void demoMethod() {
+    private Integer kewlInteger = 0;
+    
+    public void demoMethod(Integer intToSet) {
+        determineIntegerCalculations(intToSet);
+        System.debug('hi');
+    }
 
+    private Integer determineIntegerCalculations(Integer intToCalc) {
+        return intToCalc + 45;
+    }
+
+    public static String conditionalStatementExample(Contact cont){
+        if(cont.FirstName == 'Harry' &&  cont.LastName == 'Marry') {
+            return 'Tacos';
+        } else if (cont.FirstName == 'Potter' || cont.FirstName == 'Peter') {
+            return 'cookie';
+        } else {
+            return 'Wut';
+        }
+    }
+
+    public static String switchExample(Integer i) {
+        switch on i {
+            when 2 {
+                return 'wow';
+            }
+            when 3,4,5 {
+                return 'whoa';
+            }
+            when else {
+                return 'bruuhhh';
+            }
+        }
     }
 }
