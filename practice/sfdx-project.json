@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "practice",
+  "namespace": "",
+  "sfdcLoginUrl": "https://resilient-hawk-l4w5pe-dev-ed.trailblaze.my.salesforce.com/",
+  "sourceApiVersion": "62.0"
+}
