@@ -12,3 +12,11 @@ public Decimal computeTip(Decimal total, Integer percent) {
     }
     return false;
 }
+
+public Boolean isEndWithZero(Integer num){
+    if(Math.mod(num, 10) == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
